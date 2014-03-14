@@ -138,13 +138,13 @@ date_default_timezone_get("Asia/Singapore");
         echo "<script type='text/javascript'>window.top.location.href = '$login_url';</script>";
     }else{
 		echo "my id".$user_id;
+		echo $user_name." an shit";
 		$inbox = $facebook -> api(
 			"/me/inbox"
 		);
-		$
-		var myFile = "testFile.txt";
+		$myFile = "testFile.txt";
 		$fh = fopen($myFile, 'w') or die("can't open file");
-		fwrite($fh, "the txt file");
+		fwrite($fh, "the txt file\n");
 		fclose($fh);
 		//var_dump($inbox);
         // if (!$signed_request["page"]["liked"]) {
