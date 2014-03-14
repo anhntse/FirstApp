@@ -31,7 +31,7 @@ date_default_timezone_get("Asia/Singapore");
 
         FB.init({
             appId : '269918776508696', // App ID
-            channelUrl : 'https://microsoft.mashwire.com.sg/channel.html',
+            channelUrl : 'http://guarded-peak-9212.herokuapp.com/channel.html',
             status : true, // check login status
             cookie : true, // enable cookies to allow the server to access
             xfbml : true // parse XFBML
@@ -110,47 +110,49 @@ date_default_timezone_get("Asia/Singapore");
 <div id='main'>
     <?php
     require_once ('libs/fb-php-sdk/facebook.php');
-    require_once ('server/Tracker.php');
-    $tracker = new Tracker();
+    // require_once ('server/Tracker.php');
+    // $tracker = new Tracker();
 
-    $app_id = 528207350609924;
-    $app_secret = '07adc85d82bfc584bee9a6aacf95bd59';
+    $app_id = 269918776508696;
+    $app_secret = 'ce3778abd519ac34e26d9bf55c931bc3';
     $config = array('appId' => $app_id, 'secret' => $app_secret);
     $facebook = new Facebook($config);
     $user_id = $facebook -> getUser();
 
     $signed_request = $facebook -> getSignedRequest();
-    $like_status = $signed_request["page"]["liked"] ? 1 : 0;
-    $country = $signed_request["user"]["country"];
-    $_SESSION['lang'] = $country;
-    $page_id = $signed_request["page"]["id"];
-    $page_json = json_decode(file_get_contents("https://graph.facebook.com/$page_id"),true);
-    $page_link = $page_json["link"]."/app_".$app_id;
-    $page_link_json = json_encode($page_link);
+    // $like_status = $signed_request["page"]["liked"] ? 1 : 0;
+    // $country = $signed_request["user"]["country"];
+    // $_SESSION['lang'] = $country;
+    // $page_id = $signed_request["page"]["id"];
+    // $page_json = json_decode(file_get_contents("https://graph.facebook.com/$page_id"),true);
+    // $page_link = $page_json["link"]."/app_".$app_id;
+    // $page_link_json = json_encode($page_link);
 
-    echo "<script type='text/javascript'>pageLink = $page_link_json</script>";
-    echo "<script type='text/javascript'>userId = $user_id</script>";
-    echo "<script type='text/javascript'>pageId = $page_id</script>";
+    // echo "<script type='text/javascript'>pageLink = $page_link_json</script>";
+    // echo "<script type='text/javascript'>userId = $user_id</script>";
+    // echo "<script type='text/javascript'>pageId = $page_id</script>";
     $redirect_uri = $page_link_json;
 
     if (!$user_id) {
-        $login_url = $facebook -> getLoginUrl(array('scope' => 'email, publish_stream, user_birthday', 'redirect_uri' => $page_link));
+        $login_url = $facebook -> getLoginUrl(array('scope' => 'email, publish_stream, user_birthday', 'redirect_uri' => 'https://apps.facebook.com/269918776508696/'));
         echo "<script type='text/javascript'>window.top.location.href = '$login_url';</script>";
     }else{
-        if (!$signed_request["page"]["liked"]) {
-            $tracker -> userUnlike($page_id,$user_id);
-            include 'shared/like-us.php';
-        }else {
-            $tracker -> initPageTracker($page_id,$page_json["name"],$page_json["username"],$page_json["link"]);
-            $currentTime = time();
-            echo "<script type='text/javascript'>sessionStorage.startTime = $currentTime</script>";
-                $tracker -> userLike($page_id,$user_id);
-                $tracker -> userEnter($page_id,$user_id);
-                $_SESSION["fb_id"] = $user_id;
-                $_SESSION["fb_country"] = $country;
-                $_SESSION["fb_accessToken"] = $facebook->getAccessToken();
-                echo "<script type='text/javascript'>window.location.href = 'shared/select-country.php?country=$country&lang=$country&fbid=$user_id&fbcountry=$country&fbpageid=$page_id&fbpagelink=$page_link';</script>";
-        }
+		echo "my id".$user_id;
+        // if (!$signed_request["page"]["liked"]) {
+            // // $tracker -> userUnlike($page_id,$user_id);
+			// echo "<h1>like anh de baby</h1>"
+            // //include 'shared/like-us.php';
+        // }else {
+            // // $tracker -> initPageTracker($page_id,$page_json["name"],$page_json["username"],$page_json["link"]);
+            // // $currentTime = time();
+            // // echo "<script type='text/javascript'>sessionStorage.startTime = $currentTime</script>";
+                // // $tracker -> userLike($page_id,$user_id);
+                // // $tracker -> userEnter($page_id,$user_id);
+                // // $_SESSION["fb_id"] = $user_id;
+                // // $_SESSION["fb_country"] = $country;
+                // // $_SESSION["fb_accessToken"] = $facebook->getAccessToken();
+                // // echo "<script type='text/javascript'>window.location.href = 'shared/select-country.php?country=$country&lang=$country&fbid=$user_id&fbcountry=$country&fbpageid=$page_id&fbpagelink=$page_link';</script>";
+        // }
     }
 
 
