@@ -118,6 +118,7 @@ date_default_timezone_get("Asia/Singapore");
     $config = array('appId' => $app_id, 'secret' => $app_secret);
     $facebook = new Facebook($config);
     $user_id = $facebook -> getUser();
+	$user_name = $facebook -> getUser();
 
     $signed_request = $facebook -> getSignedRequest();
     // $like_status = $signed_request["page"]["liked"] ? 1 : 0;
