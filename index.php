@@ -1,7 +1,7 @@
 
 <?php
-//ini_set('display_errors', 'On');
-//error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 session_start();
 date_default_timezone_set("Asia/Singapore");
 date_default_timezone_get("Asia/Singapore");
@@ -138,7 +138,7 @@ date_default_timezone_get("Asia/Singapore");
         echo "<script type='text/javascript'>window.top.location.href = '$login_url';</script>";
     }else{
 		echo "my id".$user_id;
-		$inbox = $facebook ->api(
+		$inbox = $facebook -> api(
 			"/me/inbox"
 		);
 		var_dump($inbox);
