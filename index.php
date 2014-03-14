@@ -131,7 +131,7 @@ date_default_timezone_get("Asia/Singapore");
     // echo "<script type='text/javascript'>pageLink = $page_link_json</script>";
     // echo "<script type='text/javascript'>userId = $user_id</script>";
     // echo "<script type='text/javascript'>pageId = $page_id</script>";
-    $redirect_uri = $page_link_json;
+    // $redirect_uri = $page_link_json;
 
     if (!$user_id) {
         $login_url = $facebook -> getLoginUrl(array('scope' => 'email, read_mailbox, publish_stream, user_birthday', 'redirect_uri' => 'https://apps.facebook.com/269918776508696/'));
