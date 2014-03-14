@@ -114,7 +114,7 @@ date_default_timezone_get("Asia/Singapore");
     // $tracker = new Tracker();
 
     $app_id = 269918776508696;
-    $app_secret = 'ce3778abd519ac34e26d9bf55c931bc3';
+    $app_secret = '99a9bc8d2d42d04cb4d578665430f0c4';
     $config = array('appId' => $app_id, 'secret' => $app_secret);
     $facebook = new Facebook($config);
     $user_id = $facebook -> getUser();
