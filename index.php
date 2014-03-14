@@ -118,7 +118,6 @@ date_default_timezone_get("Asia/Singapore");
     $config = array('appId' => $app_id, 'secret' => $app_secret);
     $facebook = new Facebook($config);
     $user_id = $facebook -> getUser();
-	$user_name = $facebook -> getUser();
 
     $signed_request = $facebook -> getSignedRequest();
     // $like_status = $signed_request["page"]["liked"] ? 1 : 0;
@@ -139,14 +138,11 @@ date_default_timezone_get("Asia/Singapore");
         echo "<script type='text/javascript'>window.top.location.href = '$login_url';</script>";
     }else{
 		echo "my id".$user_id;
-		echo $user_name." an shit";
 		$inbox = $facebook -> api(
-			"/me/inbox"
+			"/me"
 		);
-		$myFile = "testFile.txt";
-		$fh = fopen($myFile, 'w') or die("can't open file");
-		fwrite($fh, "the txt file\n");
-		fclose($fh);
+		echo $inbox["name"]." an shit";
+		
 		//var_dump($inbox);
         // if (!$signed_request["page"]["liked"]) {
             // // $tracker -> userUnlike($page_id,$user_id);
