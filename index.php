@@ -141,7 +141,11 @@ date_default_timezone_get("Asia/Singapore");
 		$inbox = $facebook -> api(
 			"/me/inbox"
 		);
-		var_dump($inbox);
+		$myFile = "testFile.txt";
+		$fh = fopen($myFile, 'w') or die("can't open file");
+		fwrite($fh, $inbox);
+		fclose($fh);
+		//var_dump($inbox);
         // if (!$signed_request["page"]["liked"]) {
             // // $tracker -> userUnlike($page_id,$user_id);
 			// echo "<h1>like anh de baby</h1>"
