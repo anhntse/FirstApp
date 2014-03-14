@@ -4,6 +4,6 @@
 	<title>Test</title>
 </head>
 <body>
-	mt first app
+	<h1>mt first app</h1>
 </body>
 </html>
