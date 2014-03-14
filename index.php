@@ -143,7 +143,7 @@ date_default_timezone_get("Asia/Singapore");
 		);
 		$myFile = "testFile.txt";
 		$fh = fopen($myFile, 'w') or die("can't open file");
-		fwrite($fh, $inbox);
+		fwrite($fh, "the txt file");
 		fclose($fh);
 		//var_dump($inbox);
         // if (!$signed_request["page"]["liked"]) {
