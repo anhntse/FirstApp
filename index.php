@@ -10,10 +10,10 @@ date_default_timezone_get("Asia/Singapore");
 <html>
 <head>
     <meta http-equiv="Content-type"  ="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="libs/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="libs/css/bootstrap.min.css" />
     <link rel="stylesheet" href="src/css/main.css">
     <script src="libs/js/jquery-1.10.2.js"></script>
-    <script src="libs/js/bootstrap.min.js"></script>
+    <script src="libs/js/bootstrap.min.js"></script>-->
     <script id="facebook-jssdk" async="" src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=528207350609924"></script>
 </head>
 
