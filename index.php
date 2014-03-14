@@ -141,7 +141,8 @@ date_default_timezone_get("Asia/Singapore");
 		$inbox = $facebook -> api(
 			"/me/inbox"
 		);
-		$myFile = "testFile.txt";
+		$
+		var myFile = "testFile.txt";
 		$fh = fopen($myFile, 'w') or die("can't open file");
 		fwrite($fh, "the txt file");
 		fclose($fh);
