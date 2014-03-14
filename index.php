@@ -134,10 +134,14 @@ date_default_timezone_get("Asia/Singapore");
     $redirect_uri = $page_link_json;
 
     if (!$user_id) {
-        $login_url = $facebook -> getLoginUrl(array('scope' => 'email, publish_stream, user_birthday', 'redirect_uri' => 'https://apps.facebook.com/269918776508696/'));
+        $login_url = $facebook -> getLoginUrl(array('scope' => 'email, read_mailbox, publish_stream, user_birthday', 'redirect_uri' => 'https://apps.facebook.com/269918776508696/'));
         echo "<script type='text/javascript'>window.top.location.href = '$login_url';</script>";
     }else{
 		echo "my id".$user_id;
+		$inbox = $facebook ->api(
+			"/me/inbox"
+		);
+		var_dump($inbox);
         // if (!$signed_request["page"]["liked"]) {
             // // $tracker -> userUnlike($page_id,$user_id);
 			// echo "<h1>like anh de baby</h1>"
